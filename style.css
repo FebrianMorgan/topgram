@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #00376b;
+  --white: #dbdbdb;
+  --black: #000000;
+  --max-width: 62.1875rem;
+  --padding: 0 1.875rem;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  top: 0;
+  left: 0;
+  position: fixed;
+  border-bottom: 1px solid var(--white);
+  background-color: white;
+  z-index: 200;
+  padding: 0 1.875rem;
+}
+
+.nav-container {
+  width: 100%;
+  align-items: center;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  display: flex;
+  height: 100%;
+}
+
+.navbar-logo {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+}
+
+.main-content {
+  max-width: var(--max-width);
+  margin: 4.375rem auto;
+}
+
+.profile-container {
+  display: flex;
+  /* flex-flow: row wrap; */
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@media only screen and (max-width: 565px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+  }
+}
+
+.profile-picture {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.gray-circle {
+  height: 9.375rem;
+  width: 9.375rem;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+.user-profile {
+  flex: 2;
+}
+
+.username {
+  margin-bottom: 1.25rem;
+  line-height: 32px;
+}
+
+.username h2 {
+  margin-top: 0;
+  font-weight: 300;
+}
+
+.user-info {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin-bottom: 1.25rem;
+}
+
+.user-info li {
+  margin-right: 2.5rem;
+}
+
+.user-desc {
+  line-height: 24px;
+}
+
+.count {
+  font-weight: bold;
+}
+
+.user-profile-name {
+  font-weight: bold;
+}
+
+.user-link-style {
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+#photo-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.3125rem, max-content));
+  gap: 1.75rem;
+  justify-content: center;
+}
+
+.image-container,
+.image-wrap {
+  width: 18.3125rem;
+  height: 18.3125rem;
+}
+
+.image-wrap {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  background: rgb(0, 0, 0, 0.5);
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.image-like-div,
+.image-comment-div {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.image-like-picture,
+.image-comment-picture {
+  cursor: pointer;
+  margin-right: 0.625rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.image-like-count,
+.image-comment-count {
+  color: white;
+  margin-right: 0.625rem;
+}
