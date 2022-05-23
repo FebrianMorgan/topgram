@@ -1,5 +1,6 @@
 const BASE_URL = "https://pixabay.com/api/";
 const API_KEY = "27288807-7c18b43e45aba5d7e6b6f5102";
+const IMAGE_PATH = "assets/png/";
 
 const photoContainer = document.getElementById("photo-container");
 
@@ -42,7 +43,7 @@ async function createGridItems() {
 
     const imageLikePicture = document.createElement("img");
     imageLikePicture.classList.add("image-like-picture");
-    imageLikePicture.src = "assets/png/like.png";
+    imageLikePicture.src = `${IMAGE_PATH}like.png`;
     imageLike.appendChild(imageLikePicture);
 
     const imageLikeCount = document.createElement("span");
@@ -60,7 +61,7 @@ async function createGridItems() {
 
     const imageCommentPicture = document.createElement("img");
     imageCommentPicture.classList.add("image-comment-picture");
-    imageCommentPicture.src = "assets/png/comment.png";
+    imageCommentPicture.src = `${IMAGE_PATH}comment.png`;
     imageComment.appendChild(imageCommentPicture);
 
     const imageCommentCount = document.createElement("span");
