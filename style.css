@@ -159,8 +159,8 @@ nav {
   transition: opacity 0.2s ease-in;
 }
 
-.image-like-div,
-.image-comment-div {
+.image-like-container,
+.image-comment-container {
   display: flex;
   align-items: center;
   font-weight: bold;

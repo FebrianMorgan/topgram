@@ -14,54 +14,62 @@ async function getData() {
 async function createGridItems() {
   const urlData = await getData();
   urlData.forEach((element) => {
-    let imageDiv = document.createElement("div");
-    imageDiv.classList.add("image-wrap");
-    let gridImage = document.createElement("img");
-    gridImage.classList.add("image-container");
-    gridImage.src = `${element.largeImageURL}`;
-    photoContainer.appendChild(imageDiv);
-    imageDiv.appendChild(gridImage);
+    let imageWrap = document.createElement("div");
+    imageWrap.classList.add("image-wrap");
+
+    let imageContainer = document.createElement("img");
+    imageContainer.classList.add("image-container");
+    imageContainer.src = `${element.largeImageURL}`;
+    imageWrap.appendChild(imageContainer);
+
+    photoContainer.appendChild(imageWrap);
 
     const overlayEl = document.createElement("div");
     overlayEl.classList.add("overlay");
-    imageDiv.appendChild(overlayEl);
+    imageWrap.appendChild(overlayEl);
 
-    const imageLikeDiv = document.createElement("div");
+    const imageLikeContainer = document.createElement("div");
+    imageLikeContainer.classList.add("image-like-container");
+    overlayEl.appendChild(imageLikeContainer);
+
     const imageLike = document.createElement("div");
-    const imageLikePicture = document.createElement("img");
-    imageLikeDiv.classList.add("image-like-div");
     imageLike.classList.add("image-like");
+    imageLikeContainer.appendChild(imageLike);
+
+    const imageLikePicture = document.createElement("img");
     imageLikePicture.classList.add("image-like-picture");
     imageLikePicture.src = "assets/png/like.png";
-    overlayEl.appendChild(imageLikeDiv);
-    imageLikeDiv.appendChild(imageLike);
     imageLike.appendChild(imageLikePicture);
+
     const imageLikeCount = document.createElement("span");
     imageLikeCount.textContent = `${element.likes}`;
     imageLikeCount.classList.add("image-like-count");
-    imageLikeDiv.appendChild(imageLikeCount);
+    imageLikeContainer.appendChild(imageLikeCount);
 
-    const imageCommentDiv = document.createElement("div");
+    const imageCommentContainer = document.createElement("div");
+    imageCommentContainer.classList.add("image-comment-container");
+    overlayEl.appendChild(imageCommentContainer);
+
     const imageComment = document.createElement("div");
-    const imageCommentPicture = document.createElement("img");
-    imageCommentDiv.classList.add("image-comment-div");
     imageComment.classList.add("image-comment");
+    imageCommentContainer.appendChild(imageComment);
+
+    const imageCommentPicture = document.createElement("img");
     imageCommentPicture.classList.add("image-comment-picture");
     imageCommentPicture.src = "assets/png/comment.png";
-    overlayEl.appendChild(imageCommentDiv);
-    imageCommentDiv.appendChild(imageComment);
     imageComment.appendChild(imageCommentPicture);
+
     const imageCommentCount = document.createElement("span");
     imageCommentCount.textContent = `${element.comments}`;
     imageCommentCount.classList.add("image-comment-count");
-    imageCommentDiv.appendChild(imageCommentCount);
+    imageCommentContainer.appendChild(imageCommentCount);
 
-    imageDiv.addEventListener("mouseenter", (e) => {
+    imageWrap.addEventListener("mouseenter", (e) => {
       const overlay = e.target.lastChild;
       overlay.style.opacity = 0.5;
     });
 
-    imageDiv.addEventListener("mouseleave", (e) => {
+    imageWrap.addEventListener("mouseleave", (e) => {
       const overlay = e.target.lastChild;
       overlay.style.opacity = 0;
     });
