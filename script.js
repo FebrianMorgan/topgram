@@ -3,27 +3,6 @@ const API_KEY = "27288807-7c18b43e45aba5d7e6b6f5102";
 
 const photoContainer = document.getElementById("photo-container");
 
-// async function getData() {
-//   let response = await fetch(
-//     `${BASE_URL}?key=${API_KEY}&q=yellow+flowers&image_type=photo`
-//   );
-//   const data = await response.json();
-//   const urlData = data.hits.map((v) => v.largeImageURL);
-//   urlData.forEach((element) => {
-//     let imageDiv = document.createElement("div");
-//     imageDiv.classList.add("image-wrap");
-//     let gridImage = document.createElement("img");
-//     gridImage.classList.add("image-container");
-//     gridImage.src = `${element}`;
-//     photoContainer.appendChild(imageDiv);
-//     imageDiv.appendChild(gridImage);
-
-//     const overlayEl = document.createElement("div");
-//     overlayEl.classList.add("overlay");
-//     imageDiv.appendChild(overlayEl);
-//   });
-// }
-
 async function getData() {
   let response = await fetch(
     `${BASE_URL}?key=${API_KEY}&q=yellow+flowers&image_type=photo`
@@ -80,7 +59,7 @@ async function createGridItems() {
 
     imageDiv.addEventListener("mouseenter", (e) => {
       const overlay = e.target.lastChild;
-      overlay.style.opacity = 1;
+      overlay.style.opacity = 0.5;
     });
 
     imageDiv.addEventListener("mouseleave", (e) => {
