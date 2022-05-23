@@ -8,8 +8,7 @@ async function getData() {
     `${BASE_URL}?key=${API_KEY}&q=yellow+flowers&image_type=photo`
   );
   const data = await response.json();
-  const urlData = data.hits.map((v) => v);
-  return urlData;
+  return data.hits;
 }
 
 async function createGridItems() {
