@@ -24,13 +24,17 @@ async function createGridItems() {
 
     photoContainer.appendChild(imageWrap);
 
+    const imageInfo = document.createElement("div");
+    imageInfo.classList.add("image-info");
+    imageWrap.appendChild(imageInfo);
+
     const overlayEl = document.createElement("div");
     overlayEl.classList.add("overlay");
     imageWrap.appendChild(overlayEl);
 
     const imageLikeContainer = document.createElement("div");
     imageLikeContainer.classList.add("image-like-container");
-    overlayEl.appendChild(imageLikeContainer);
+    imageInfo.appendChild(imageLikeContainer);
 
     const imageLike = document.createElement("div");
     imageLike.classList.add("image-like");
@@ -48,7 +52,7 @@ async function createGridItems() {
 
     const imageCommentContainer = document.createElement("div");
     imageCommentContainer.classList.add("image-comment-container");
-    overlayEl.appendChild(imageCommentContainer);
+    imageInfo.appendChild(imageCommentContainer);
 
     const imageComment = document.createElement("div");
     imageComment.classList.add("image-comment");
@@ -67,11 +71,17 @@ async function createGridItems() {
     imageWrap.addEventListener("mouseenter", (e) => {
       const overlay = e.target.lastChild;
       overlay.style.opacity = 0.5;
+
+      const imageLogo = e.target.children[1];
+      imageLogo.style.opacity = 1;
     });
 
     imageWrap.addEventListener("mouseleave", (e) => {
       const overlay = e.target.lastChild;
       overlay.style.opacity = 0;
+
+      const imageLogo = e.target.children[1];
+      imageLogo.style.opacity = 0;
     });
   });
 }
